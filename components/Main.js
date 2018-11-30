@@ -38,9 +38,9 @@ class Main extends Component {
      * Uncaught TypeError: jsPDF is not a constructor
      */
     var doc = new jsPDF()
-    doc.text(name, 10, 10)
-    doc.text(age, 10, 30)
-    doc.text(drug, 10, 50)
+    doc.text("Patient's name: " + name, 10, 10)
+    doc.text("Patient's age: " +age, 10, 30)
+    doc.text("Drug" + drug, 10, 50)
     doc.save(name+age+drug+'.pdf')
   }
 
