@@ -33,13 +33,15 @@ let Span = styled.span`
 
 class Main extends Component {
 
-  printPDF() {
+  printPDF(name , age, drug) {
     /**
      * Uncaught TypeError: jsPDF is not a constructor
      */
     var doc = new jsPDF()
-    doc.text('Hello world!', 10, 10)
-    doc.save('a4.pdf')
+    doc.text(name, 10, 10)
+    doc.text(age, 10, 30)
+    doc.text(drug, 10, 50)
+    doc.save(name+age+drug+'.pdf')
   }
 
   render() {
@@ -59,7 +61,7 @@ class Main extends Component {
                           <P><Span>Drug:</Span> {racheta.selectedDrug}</P>
                         </Details>
                         {/* Add Print button */}
-                        <Button onCilck={this.printPDF.bind(this)}>Print</Button>
+                        <Button onCilck={this.printPDF.bind(this, racheta.patientName + racheta.patientAge + racheta.selectedDrug)}>Print</Button>
                       </Racheta>
                     )
                   })
